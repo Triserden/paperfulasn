@@ -60,7 +60,6 @@ export default function CardMaker() {
       })
     }
     setCards(cardData)
-    console.debug(cards)
   }
 
   return (
@@ -129,8 +128,12 @@ export default function CardMaker() {
           </div>
         </div>
       </div>
-
-      <div className="print mt-10 grid grid-cols-5 grid-rows-10">
+      <div className="print:hidden flex items-center mt-10 w-full">
+        <div className="flex-1 border-t-2 border-gray-300"/>
+        <Button className="mx-3" onClick={window.print}>Print</Button>
+        <div className="flex-1 border-t-2 border-gray-300"/>
+      </div>
+      <div className="print mt-5 grid grid-cols-5 grid-rows-10">
         {
           cards.map((value) =>
               <div className="m-1 border-2 border-black h-fit px-2 ">
