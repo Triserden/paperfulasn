@@ -115,7 +115,7 @@ export default function CardMaker() {
             <h1 className="text-3xl mb-2">Paperless-ngx ASN/PATCHT Generator</h1>
             <p>
               This tool allows you to generate small cards for
-              <a href="https://github.com/paperless-ngx/paperless-ngx"> paperless-ngx</a>'s
+              <a href="https://github.com/paperless-ngx/paperless-ngx"> paperless-ngx</a>&apos;s
               <a href="https://docs.paperless-ngx.com/advanced_usage/#archive-serial-number-assignment"> Archive Serial
                 Number Assignment
               </a> and
@@ -136,7 +136,7 @@ export default function CardMaker() {
       <div className="print mt-5 grid grid-cols-5 grid-rows-10">
         {
           cards.map((value) =>
-              <div className="m-1 border-2 border-black h-fit px-2 ">
+              <div className="m-1 border-2 border-black h-fit px-2" key={value.asnValue}>
                 <div className="flex flex-row justify-center mt-1 ">
                   <img src={value.asnCode} width="70mm" height="70mm" alt="ASN QR Code"/>
                   <img src={value.separatorCode} width="70mm" height="70mm" alt="Separator QR Code"/>
