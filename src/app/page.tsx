@@ -116,7 +116,7 @@ export default function CardMaker() {
     <div id={"output"} className="print mt-10 w-full grid grid-cols-5 grid-rows-10">
       {
         cards.map((value) =>
-            <div className="m-1 border-2 border-black">
+            <div className="m-1 border-2 border-black h-fit">
               <div className="flex flex-row justify-center mt-1 ">
                 <img src={value.asnCode} width="50mm" height="50mm" alt="ASN QR Code"/>
                 <img src={value.separatorCode} width="50mm" height="50mm" alt="Separator QR Code"/>
