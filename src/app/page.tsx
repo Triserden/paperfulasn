@@ -64,11 +64,12 @@ export default function CardMaker() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-12 w-full">
+    <main className="flex min-h-screen flex-col items-center justify-center p-12 w-full ">
       {/* Input fields */}
-      <div className="print:hidden">
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <div className="print:hidden w-3/4 align-middle ">
+        <div className="flex flex-row">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mx-2">
             <FormField
               name={"startValue"}
               control={form.control}
@@ -108,25 +109,41 @@ export default function CardMaker() {
                 </FormItem>
               )}
              />
-            <Button type="submit"> Submit</Button>
+            <Button type="submit">Generate</Button>
         </form>
-      </Form>
-    </div>
+          </Form>
+          <div className="p-5 w-full">
+            <h1 className="text-3xl mb-2">Paperless-ngx ASN/PATCHT Generator</h1>
+            <p>
+              This tool allows you to generate small cards for
+              <a href="https://github.com/paperless-ngx/paperless-ngx"> paperless-ngx</a>'s
+              <a href="https://docs.paperless-ngx.com/advanced_usage/#archive-serial-number-assignment"> Archive Serial
+                Number Assignment
+              </a> and
+              <a href="https://docs.paperless-ngx.com/advanced_usage/#document-splitting"> Document Splitting</a>.
+            </p>
 
-    <div id={"output"} className="print mt-10 grid grid-cols-5 grid-rows-10">
-      {
-        cards.map((value) =>
-            <div className="m-1 border-2 border-black h-fit w-fit px-2">
-              <div className="flex flex-row justify-center mt-1 ">
-                <img src={value.asnCode} width="70mm" height="70mm" alt="ASN QR Code"/>
-                <img src={value.separatorCode} width="70mm" height="70mm" alt="Separator QR Code"/>
+            <p className="mt-2">
+              To use these cards, you need to have PAPERLESS_CONSUMER_ENABLE_ASN_BARCODE and PAPERLESS_CONSUMER_ENABLE_BARCODES set to true.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="print mt-10 grid grid-cols-5 grid-rows-10">
+        {
+          cards.map((value) =>
+              <div className="m-1 border-2 border-black h-fit px-2 ">
+                <div className="flex flex-row justify-center mt-1 ">
+                  <img src={value.asnCode} width="70mm" height="70mm" alt="ASN QR Code"/>
+                  <img src={value.separatorCode} width="70mm" height="70mm" alt="Separator QR Code"/>
+                </div>
+                <p className="w-full text-center">{value.asnValue}</p>
               </div>
-              <p className="w-full text-center">{value.asnValue}</p>
-            </div>
-        )
-      }
-    </div>
-  </main>
+          )
+        }
+      </div>
+    </main>
 )
   ;
 }
