@@ -62,6 +62,10 @@ export default function CardMaker() {
     setCards(cardData)
   }
 
+  function print(){
+    window.print()
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-12 w-full ">
       {/* Input fields */}
@@ -130,7 +134,7 @@ export default function CardMaker() {
       </div>
       <div className="print:hidden flex items-center mt-10 w-full">
         <div className="flex-1 border-t-2 border-gray-300"/>
-        <Button className="mx-3" onClick={window.print}>Print</Button>
+        <Button className="mx-3" onClick={print}>Print</Button>
         <div className="flex-1 border-t-2 border-gray-300"/>
       </div>
       <div className="print mt-5 grid grid-cols-5 grid-rows-10">
